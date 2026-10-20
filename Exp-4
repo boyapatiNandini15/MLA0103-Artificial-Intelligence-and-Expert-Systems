@@ -1,0 +1,44 @@
+import heapq
+def best_first_search(graph, heuristic, start, goal):
+    priority_queue = [(heuristic[start], 0, start, [start])]
+    best_cost = {start: 0}
+    while priority_queue:
+        _, cost, node, path = heapq.heappop(priority_queue)
+        if cost != best_cost.get(node):
+            continue
+        if node == goal:
+            return path, cost
+        for neighbor, weight in graph[node]:
+            new_cost = cost + weight
+            if new_cost < best_cost.get(neighbor, float('inf')):
+                best_cost[neighbor] = new_cost
+                priority = new_cost + heuristic[neighbor]
+                heapq.heappush(
+                    priority_queue,
+                    (priority, new_cost, neighbor, path + [neighbor])
+                )
+    return None, float('inf')
+graph = {
+    'A': [('B', 1), ('C', 4)],
+    'B': [('D', 2), ('E', 5)],
+    'C': [('E', 1)],
+    'D': [('F', 4)],
+    'E': [('F', 1)],
+    'F': []
+}
+heuristic = {
+    'A': 5,
+    'B': 4,
+    'C': 2,
+    'D': 4,
+    'E': 1,
+    'F': 0
+}
+start = 'A'
+goal = 'F'
+path, cost = best_first_search(graph, heuristic, start, goal)
+if path:
+    print("Best First Search Path:", " -> ".join(path))
+    print("Total Cost:", cost)
+else:
+    print("Path not found")

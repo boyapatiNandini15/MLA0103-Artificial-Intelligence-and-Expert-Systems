@@ -1,0 +1,34 @@
+from collections import deque
+def bfs(graph, start, goal):
+    queue = deque([[start]])
+    visited = set()
+    while queue:
+        path = queue.popleft()
+        node = path[-1]
+        if node == goal:
+            return path
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                if neighbor not in visited:
+                    queue.append(path + [neighbor])
+    return None
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F', 'G'],
+    'D': [],
+    'E': ['H'],
+    'F': [],
+    'G': [],
+    'H': []
+}
+start = 'A'
+goal = 'H'
+path = bfs(graph, start, goal)
+if path:
+    print("BFS Traversal Path:", " -> ".join(path))
+    print("Shortest Path:", " -> ".join(path))
+    print("Number of Edges:", len(path) - 1)
+else:
+    print("Path not found")

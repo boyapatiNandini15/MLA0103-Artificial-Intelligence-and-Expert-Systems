@@ -1,0 +1,14 @@
+import heapq
+g={'A':[('B',1),('C',3)],'B':[('D',4),('E',2)],'C':[('D',1)],'D':[],'E':[('D',1)]}
+h={'A':4,'B':3,'C':1,'D':0,'E':1}
+q=[(4,0,'A',['A'])]
+seen=set()
+while q:
+ f,c,n,p=heapq.heappop(q)
+ if n in seen: continue
+ seen.add(n)
+ if n=='D':
+  print('A* path:',p,'Cost:',c)
+  break
+ for x,w in g[n]:
+  heapq.heappush(q,(c+w+h[x],c+w,x,p+[x]))

@@ -1,0 +1,10 @@
+def diet(age,bmi,condition):
+ if condition.lower()=='diabetes':
+  return 'Limit added sugar; consult a dietitian.'
+ if bmi>=25:
+  return 'Balanced portions, vegetables, whole grains, lean protein.'
+ if age<18:
+  return 'Age-appropriate diet; consult a professional.'
+ return 'Maintain a varied balanced diet.'
+print(diet(25,27.5,'none'))
+print('Educational example only; not medical advice.')

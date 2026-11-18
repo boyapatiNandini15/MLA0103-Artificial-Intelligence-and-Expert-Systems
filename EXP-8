@@ -1,0 +1,6 @@
+scores=[3,5,2,9]
+children=[min(scores[:2]),min(scores[2:])]
+print('Leaf scores:',scores)
+print('Root MAX score:',max(children))
+print('Pruning avoids branches that cannot improve the result.')
+print('This is a simplified demonstration.')

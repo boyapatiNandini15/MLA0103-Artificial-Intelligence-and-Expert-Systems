@@ -1,0 +1,9 @@
+parents={('Ravi','Anu'),('Ravi','Kiran'),
+ ('Meena','Anu'),('Meena','Kiran')}
+def siblings(person):
+ out=set()
+ for p,c in parents:
+  if c==person:
+   out.update(o for p2,o in parents if p2==p and o!=person)
+ return sorted(out)
+print('Siblings of Anu:',siblings('Anu'))

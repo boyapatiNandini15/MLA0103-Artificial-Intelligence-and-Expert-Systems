@@ -1,0 +1,4 @@
+rules={'yellow':'Banana','orange':'Orange',
+ 'red':'Apple or strawberry','green':'Green apple or pear'}
+for c in ['yellow','orange','red','purple']:
+ print(c,'=>',rules.get(c,'Unknown fruit'))

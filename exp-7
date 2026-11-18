@@ -1,0 +1,8 @@
+def mm(v,maxing):
+ if len(v)==1: return v[0]
+ m=len(v)//2
+ a=mm(v[:m],not maxing)
+ b=mm(v[m:],not maxing)
+ return max(a,b) if maxing else min(a,b)
+print('Leaf scores:',[3,5,2,9])
+print('Minimax score:',mm([3,5,2,9],True))

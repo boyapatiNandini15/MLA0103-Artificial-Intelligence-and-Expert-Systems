@@ -1,0 +1,4 @@
+actions=['Move to the box','Push box under banana',
+ 'Climb onto box','Take the banana']
+for i,a in enumerate(actions,1):
+ print(i,a)

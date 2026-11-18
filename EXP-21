@@ -1,0 +1,6 @@
+seq=['red','blue','red','green','red','blue']
+counts={}
+for x in seq:
+ counts[x]=counts.get(x,0)+1
+print('Counts:',counts)
+print('Most frequent:',max(counts,key=counts.get))

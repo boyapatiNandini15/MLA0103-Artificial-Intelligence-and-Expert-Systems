@@ -1,0 +1,11 @@
+data=[((0,0),0),((0,1),0),((1,0),0),((1,1),1)]
+w1=w2=b=0
+for _ in range(10):
+ for (x1,x2),y in data:
+  e=y-int(w1*x1+w2*x2+b>0)
+  w1+=e*x1
+  w2+=e*x2
+  b+=e
+print('Weights:',w1,w2,'Bias:',b)
+for x,y in data:
+ print(x,'expected',y,'predicted',int(w1*x[0]+w2*x[1]+b>0))

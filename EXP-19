@@ -1,0 +1,6 @@
+planets={'Mercury':(1,'terrestrial'),'Earth':(3,'terrestrial'),
+ 'Jupiter':(5,'gas giant'),'Neptune':(8,'ice giant')}
+name='Earth'
+print('Planet:',name)
+print('Order from Sun:',planets[name][0])
+print('Type:',planets[name][1])

@@ -1,0 +1,19 @@
+from collections import deque
+q=deque([((0,0),[])])
+seen={(0,0)}
+while q:
+ (a,b),steps=q.popleft()
+ if a==2 or b==2:
+  print('Operations:',steps)
+  print('Goal state:',(a,b))
+  break
+ states=[((4,b),'Fill 4L'),((a,3),'Fill 3L'),
+ ((0,b),'Empty 4L'),((a,0),'Empty 3L')]
+ p=min(a,3-b)
+ states.append(((a-p,b+p),'Pour 4L to 3L'))
+ p=min(b,4-a)
+ states.append(((a+p,b-p),'Pour 3L to 4L'))
+ for s,op in states:
+  if s not in seen:
+   seen.add(s)
+   q.append((s,steps+[op]))

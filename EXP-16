@@ -1,0 +1,6 @@
+birds={'sparrow','eagle','penguin','ostrich'}
+nofly={'penguin','ostrich'}
+def can_fly(a):
+ return a in birds and a not in nofly
+for a in ['sparrow','eagle','penguin','cat']:
+ print(a,'can fly:',can_fly(a))

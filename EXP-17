@@ -1,0 +1,9 @@
+def diagnose(symptoms):
+ s=set(x.lower() for x in symptoms)
+ if {'sneezing','runny nose'}<=s:
+  return 'Possible cold or allergy'
+ if {'fever','cough'}<=s:
+  return 'Possible respiratory infection'
+ return 'Insufficient information'
+print('Result:',diagnose(['fever','cough']))
+print('Educational demo only; not a diagnosis.')

@@ -1,0 +1,6 @@
+def decide(income,credit):
+ if credit>=700 or (income>=60000 and credit>=650):
+  return 'Approve'
+ return 'Review / Reject'
+for x in [(75000,720),(50000,680),(40000,600)]:
+ print(x,'=>',decide(*x))
